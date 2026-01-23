@@ -66,7 +66,7 @@ public class ShoppingList implements MyList {
 
     public ShoppingItem getAt(int index) // method returns ShoppingItem object at index
     {
-        if(index < 0 || index > size) // checks if index is in bounds
+        if(index < 0 || index > size || items[index] == null) // checks if index is in bounds
         {
             System.out.println("Invalid index!");
             ShoppingItem invalid = new ShoppingItem("Invalid index!", 0); // creates dummy ShoppingItem to return
@@ -92,7 +92,7 @@ public class ShoppingList implements MyList {
                 minCapacity = 8;
             }
             ShoppingItem[] newItems = new ShoppingItem[minCapacity]; // new array with size minCapacity
-            for(int i = 0; i < newItems.length; i++) // copies elements from old array to new array
+            for(int i = 0; i < size; i++) // copies elements from old array to new array
             {
                 newItems[i] = items[i];
             }
@@ -103,7 +103,8 @@ public class ShoppingList implements MyList {
 
     public void trimExcess() // this uses makeCapacity to set the capacity to size
     {
-        this.makeCapacity(size);
+        
+        makeCapacity(size);
     }
 
     public void goShopping() // method buys all items in list
@@ -143,6 +144,11 @@ public class ShoppingList implements MyList {
             }
         }
         return total; // returns total price
+    }
+
+    public int getCapacity() // method returns capacity instance variable
+    {
+        return capacity; // returns current capacity of the list
     }
 
     public boolean isIdentical(ShoppingList other) // method checks if two ShoppingLists are identical

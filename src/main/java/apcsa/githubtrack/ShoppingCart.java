@@ -39,7 +39,7 @@ public class ShoppingCart {
 
     public void returnCart() // method to return cart
     {
-        if(complete == true && isReturned == false) // checks if cart is complete and has not been returned yet
+        if(isCompleted() && isReturned == false) // checks if cart is complete and has not been returned yet
         {
             ShoppingCart.returned++; // adds 1 to total carts returned
             isReturned = true; // sets returned variable to true

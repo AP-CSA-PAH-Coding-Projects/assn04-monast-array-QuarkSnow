@@ -39,11 +39,11 @@ public int compareTo(ShoppingItem item)    // compares two items if they have th
     {
         if(this.price > item.price) // this item costs more
         {
-            return -(this.price - item.price);
+            return this.price - item.price;
         }
         else if(this.price < item.price) // this item costs less
         {
-            return (item.price - this.price);
+            return this.price - item.price;
         }
         else // prices are equal
         {
@@ -52,7 +52,7 @@ public int compareTo(ShoppingItem item)    // compares two items if they have th
     }
     else // different names
     {
-        System.out.println("Error: different items!");
+        System.out.println("Error: Different items!");
         return 0;
     }
 }
